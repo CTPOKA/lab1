@@ -10,7 +10,7 @@ do
 
     while [ $a = "y" ]
     do
-        read -p "Enter username:  " $usr
+        read -p "Enter username:  " usr
 
         grep "^$usr:" /etc/passwd >/dev/null
         if [ $? -ne 0 ]
@@ -19,7 +19,7 @@ do
             echo "Try again? (y/n)"
             read a
         else
-            read -p "Enter directory name:  " $path
+            read -p "Enter directory name:  " path
             d=$(find $path -user $usr | wc)
             echo "Number of files:"`expr "$d" : '\(......[0-9]*\)'`
             break
